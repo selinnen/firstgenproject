@@ -89,7 +89,7 @@ class LoginPage(webapp2.RequestHandler):
 
 
 
-class MainPage(webapp2.RequestHandler):
+class DashboardPage(webapp2.RequestHandler):
     def get(self):
         main_template = the_jinja_env.get_template('main.html')
         # home_dictionary ={
@@ -110,6 +110,6 @@ class MainPage(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/login', LoginPage),
-    ('/main', MainPage),
+    ('/dashboard', DashboardPage),
     ('/signup', SignUpPage),
 ], debug=True)
