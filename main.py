@@ -143,4 +143,5 @@ app = webapp2.WSGIApplication([
     ('/dashboard', DashboardPage),
     ('/signup', SignUpPage),
     ('/timeline', TimelinePage),
+    ('/aboutus', AboutUsPage),
 ], debug=True)
