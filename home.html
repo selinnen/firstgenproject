@@ -1,16 +1,26 @@
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="/stylesheets/login.css">
   </head>
+  <center>
   <body>
-    <h1>Project First Gen</h1>
-    <h2>If you are an existing user, please <a href="{{login_url}}">sign in</a></h2>
+    <h1 id="top_bar">Welcome to Project First Gen</h1>
 
-    <h2>If you are a new user, please <a href="{{signup_url}}">sign up</a></h2>
-    
+    <div class="main_login">
+      <!-- <h3 id="login">Please Login</h3> -->
+      <!-- <input type="text" name="user_name" placeholder="username"><br><br>
+        <input type="text" name="pass_word" placeholder="password"> -->
+        <div class="box1">
+          <h3 id="existing_user">Already an existing user?</h3>
+        </div>
+          <button type="login_button" name="button" onclick="window.location.href='{{login_url}}'"> Please Login</button><br><br><br>
+          <button type="signup_button" name="button" onclick="window.location.href='{{signup_url}}'"> Sign Up Now</button>
+        </div>
+
+    <div class="bottom_bar"></div>
   </body>
+  </center>
 </html>
