@@ -127,6 +127,12 @@ class AboutUsPage(webapp2.RequestHandler):
         self.response.write(about_us_template.render())
 
 
+class TimelinePage(webapp2.RequestHandler):
+     def get(self):
+         timeline_template = the_jinja_env.get_template('templates/timeline.html')
+         self.response.write(timeline_template.render())
+
+
 
 
 
