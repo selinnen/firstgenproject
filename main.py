@@ -121,10 +121,7 @@ class DashboardPage(webapp2.RequestHandler):
                   users.create_logout_url('/'))
         self.response.write(signout_link_html)
 
-class TimelinePage(webapp2.RequestHandler):
-     def get(self):
-         timeline_template = the_jinja_env.get_template('templates/timeline.html')
-         self.response.write(timeline_template.render())
+
 
 
 app = webapp2.WSGIApplication([
