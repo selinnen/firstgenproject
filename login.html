@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
   </head>
   <center>
   <body>
@@ -16,8 +16,8 @@
         <div class="box1">
           <h3 id="existing_user">Already an existing user?</h3>
         </div>
-          <button type="login_button" name="button"> Please Login</button><br><br><br>
-            <button type="signup_button" name="button"> Sign Up Now</button>
+          <button type="login_button" name="button" onclick="window.location.href='{{login_url}}'"> Please Login</button><br><br><br>
+          <button type="signup_button" name="button" onclick="window.location.href='{{signup_url}}'"> Sign Up Now</button>
         </div>
 
     <div class="bottom_bar"></div>
