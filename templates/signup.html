@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome to our site, {{email_address}}!  Please sign up!</h1>
+    <br>
+    <form method="post" action="/signup">
+    <input type="text" name="first_name">
+    <input type="text" name="last_name">
+    <input type="number" name="grade_of_student">
+    <input type="hidden" name="email" value ="{{email_address}}">
+    <input type="submit">
+    </form><br>
+    <h2><a href="users.create_logout_url('/')">sign out</a></h2>
+    <br>
+  </body>
+</html>
