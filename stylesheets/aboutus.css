@@ -1,5 +1,95 @@
 body{
-  background-color: pink;
+  background-color: ivory;
   height: auto;
 
 }
+/*
+The first chunk of this CSS exists primarily so that you can see the elements.
+Flexbox would work without it, but it's easier to see what's happening when the
+font is large and when the items have a background color.
+*/
+
+/* Default to a sans-serif font */
+html {
+  font-family: sans-serif;
+}
+
+
+.Person_1 {
+  background-color: lightblue;
+  margin: 10px;
+  min-height: 120px;
+  font-size: 32px;
+  color: white;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  white-space: nowrap;
+  padding: 20px 10px;
+  min-width: 145px;
+
+}
+
+/* Style the font of the .item elements */
+.Person_2 {
+  background-color: lightblue;
+  margin: 10px;
+  min-height: 120px;
+  font-size: 32px;
+  color: white;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  white-space: nowrap;
+  padding: 20px 10px;
+  min-width: 145px;
+}
+
+.Person_3 {
+  background-color: lightblue;
+  margin: 10px;
+  min-height: 120px;
+  font-size: 32px;
+  color: white;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  white-space: nowrap;
+  padding: 20px 10px;
+  min-width: 145px;
+}
+
+
+
+/* ----------------------------------------------- */
+/* ---Please do not modify code above this line--- */
+/* ----------Code your flex classes below--------- */
+/* ----------------------------------------------- */
+
+/* Parent or Container elements */
+/* Style them all at once with this selector */
+/* .row {
+
+} */
+
+/* OR Style each row individually with these selectors */
+/* #row1 {
+  display:flex;
+
+}
+
+#row2 {
+display: flex;
+justify-content: space-around;
+}
+
+#bootstrap {
+
+  flex-grow: 2;
+}
+
+#row3 {
+
+}
+
+/* Child elements or items */
+/* .item { */
+
+/* } */ */
