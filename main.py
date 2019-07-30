@@ -12,7 +12,7 @@ the_jinja_env = jinja2.Environment(
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
-         home_template = the_jinja_env.get_template('home.html')
+         home_template = the_jinja_env.get_template('templates/home.html')
          signup_url = users.create_login_url("/signup")
          login_url = users.create_login_url("/dashboard")
          home_dictionary = {
@@ -111,7 +111,7 @@ class DashboardPage(webapp2.RequestHandler):
         print(new_user)
         self.response.write("Welcome, "+ email_address)
 
-        main_template = the_jinja_env.get_template('main.html')
+        main_template = the_jinja_env.get_template('templates/main.html')
         # home_dictionary ={
         #
         # }
@@ -119,24 +119,15 @@ class DashboardPage(webapp2.RequestHandler):
         signout_link_html = '<a href="%s">sign out</a>' % (
                   users.create_logout_url('/'))
         self.response.write(signout_link_html)
-    def post(self):
-        user.put()
-        # user = users.get_current_user()
-        # email_address = user.nickname()
-        # new_user = NewUser.query().filter(NewUser.email == email_address).get()
-        main_template = the_jinja_env.get_template('main.html')
-        # home_dictionary ={
-        #
-        # }
-        self.response.write(main_template.render())
-        signout_link_html = '<a href="%s">sign out</a>' % (
-                  users.create_logout_url('/'))
 
-        self.response.write(signout_link_html)
+# class TimelinePage(webapp2.RequestHandler):
+#     def get(self):
+
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/login', LoginPage),
     ('/dashboard', DashboardPage),
     ('/signup', SignUpPage),
+    # ('/timeline', TimelinePage),
 ], debug=True)
