@@ -1,7 +1,7 @@
 body{
   background-color: ivory;
   height: auto;
-
+  flex:initial;
 }
 /*
 The first chunk of this CSS exists primarily so that you can see the elements.
@@ -56,8 +56,16 @@ html {
   min-width: 145px;
 }
 
+#emily {
+  width:50px;
+  height:50px;
+}
 
-
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:space-around;
+}
 /* ----------------------------------------------- */
 /* ---Please do not modify code above this line--- */
 /* ----------Code your flex classes below--------- */
