@@ -1,0 +1,93 @@
+body{
+  background-color: ivory;
+  height: auto;
+
+}
+
+h1{
+  color: beige;
+  text-shadow: 2px 1px white;
+
+}
+
+.main_login{
+  background-color: lightblue;
+  width: 375px;
+  margin-top: 100px;
+  padding: 35px;
+  border: none;
+  border-radius: 3px;
+
+
+}
+.box1{
+  background-color: ivory;
+  border: none;
+  border-radius: 4px;
+  width: 250px;
+
+
+
+}
+#existing_user{
+  color: lightblue;
+}
+
+button{
+
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-shadow: 2px 1px white;
+  outline: none;
+  color: lightblue;
+  background-color: ivory;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px azure;
+
+
+}
+button:hover {background-color: aliceblue}
+
+button:active {
+  background-color: beige;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=text]:focus {
+  border: 3px solid beige;
+}
+
+#top_bar{
+  border: 5px solid powderblue;
+  margin-top: 0;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: lightblue;
+}
+.bottom_bar{
+  border: 5px solid powderblue;
+  border-style: solid;
+  position: absolute;
+  bottom: 0;
+  width: 95.8%;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: lightblue;
+
+}
