@@ -1,0 +1,90 @@
+body{
+  background-color: ivory;
+
+}
+h4{
+  color: beige;
+  text-shadow: 1px 1px black;
+
+}
+h3{
+  color: beige;
+  text-shadow: 1px 1px black;
+
+}
+button{
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 22px;
+  cursor: pointer;
+  text-align: center;
+  text-shadow: 2px 1px white;
+  outline: none;
+  color: lightblue;
+  background-color: ivory;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px azure;
+}
+
+button:hover {background-color: aliceblue}
+
+button:active {
+  background-color: beige;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+li{
+float: left;
+
+}
+li h3 {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+
+}
+li h4 {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+
+}
+li button {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  position: relative;
+  top: 10px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  display: flex;
+  overflow: hidden;
+  border: 5px solid powderblue;
+  margin-top: 0;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 8px;
+  background-color: lightblue;
+}
+
+
+/* #email{
+  position: absolute;
+  top: 9px;
+  left: 20px;
+} */
+
+/* .intro{
+  border: 5px solid powderblue;
+  margin-top: 0;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: lightblue;
+  text-align: center;
+} */
