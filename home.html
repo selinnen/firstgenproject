@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -6,9 +8,9 @@
   </head>
   <body>
     <h1>Project First Gen</h1>
-    <h2>If you are an existing user, please sign in</h2>
-    <button id="signin" onclick="window.location.href='users.create_login_url('/dashboard')'">Sign In</button>
-    <h2>If you are a new user, please sign up</h2>
-    <button id="signup" onclick="window.location.href='users.create_login_url('/signup')'">Sign Up</button>
+    <h2>If you are an existing user, please <a href="{{login_url}}">sign in</a></h2>
+
+    <h2>If you are a new user, please <a href="{{signup_url}}">sign up</a></h2>
+    
   </body>
 </html>
