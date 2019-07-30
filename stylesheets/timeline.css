@@ -1,15 +1,45 @@
 #prezi-player{
-  height: 85vh;
+  height: 70vh;
+  border-style: solid;
+  border-color: lightblue;
+  border-radius: 5px;
+  border-width: thick;
+  margin-top: 45px;
+
 }
 
 body{
   background-color: ivory;
+}
+h1{
+  color: beige;
+  text-shadow: 2px 1px white;
+  text-align: center;
 
+}
+.bottom_bar{
+  border: 5px solid powderblue;
+  border-style: solid;
+  position: absolute;
+  bottom: 0;
+  width: 95.4%;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: lightblue;
+  margin-bottom: 5px;
+
+
+}
+#top_bar{
+  border: 5px solid powderblue;
+  margin-top: 0;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: lightblue;
 }
 
 
-/* iframe {
-    position: absolute;
-    left: 0;
-    top: 0;
-} */
+iframe {
+
+}
