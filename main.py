@@ -21,6 +21,7 @@ class HomePage(webapp2.RequestHandler):
          }
          self.response.write(home_template.render(home_dictionary))
 
+
 class SignUpPage(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -121,8 +122,16 @@ class DashboardPage(webapp2.RequestHandler):
                   users.create_logout_url('/'))
         self.response.write(signout_link_html)
 
+class AboutUsPage(webapp2.RequestHandler):
+    def get(self):
+        about_us_template = the_jinja_env.get_template('templates/aboutus.html')
+        self.response.write(about_us_template.render())
+
+
 # class TimelinePage(webapp2.RequestHandler):
 #     def get(self):
+
+
 
 
 app = webapp2.WSGIApplication([
@@ -131,4 +140,5 @@ app = webapp2.WSGIApplication([
     ('/dashboard', DashboardPage),
     ('/signup', SignUpPage),
     # ('/timeline', TimelinePage),
+    ('/aboutus', AboutUsPage),
 ], debug=True)
