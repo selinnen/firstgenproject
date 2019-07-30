@@ -14,18 +14,22 @@ html {
   font-family: sans-serif;
 }
 
+.About_Us{
+  justify-content: center;
+  display: flex;
+}
 
 .Person_1 {
   background-color: lightblue;
   margin: 10px;
-  min-height: 120px;
+  height: 30%;
   font-size: 32px;
   color: white;
   text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
   text-align: center;
   white-space: nowrap;
   padding: 20px 10px;
-  min-width: 145px;
+  width: 33.33%;
 
 }
 
@@ -40,7 +44,7 @@ html {
   text-align: center;
   white-space: nowrap;
   padding: 20px 10px;
-  min-width: 145px;
+  width: 33.33%;
 }
 
 .Person_3 {
@@ -53,7 +57,7 @@ html {
   text-align: center;
   white-space: nowrap;
   padding: 20px 10px;
-  min-width: 145px;
+  width: 33.33%;
 }
 
 #emily {

@@ -114,12 +114,15 @@ class DashboardPage(webapp2.RequestHandler):
         print("Number of users:" + str(len(NewUser.query().fetch())))
         new_user = NewUser.query().filter(NewUser.email == email_address).get(use_cache=False, use_memcache=False)
         print(new_user)
-        self.response.write("Welcome, "+ email_address)
+        # self.response.write("Welcome, "+ email_address)
+        email_dictionary ={
+            "email_address" : email_address,
+        }
         main_template = the_jinja_env.get_template('templates/main.html')
-        self.response.write(main_template.render())
-        signout_link_html = '<a href="%s">sign out</a>' % (
-                  users.create_logout_url('/'))
-        self.response.write(signout_link_html)
+        self.response.write(main_template.render(email_dictionary))
+        # signout_link_html = '<button id = "sign_out" style = " position: inheret; left: 1300px; top:12px "href="%s">Sign out</button>' % (
+        #           users.create_logout_url('/'))
+        # self.response.write(signout_link_html)
 
 class AboutUsPage(webapp2.RequestHandler):
     def get(self):
