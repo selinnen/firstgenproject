@@ -121,6 +121,13 @@ class DashboardPage(webapp2.RequestHandler):
                   users.create_logout_url('/'))
         self.response.write(signout_link_html)
 
+class AboutUsPage(webapp2.RequestHandler):
+    def get(self):
+        about_us_template = the_jinja_env.get_template('templates/aboutus.html')
+        self.response.write(about_us_template.render())
+
+
+
 
 
 
