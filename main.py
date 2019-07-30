@@ -30,29 +30,31 @@ class SignUpPage(webapp2.RequestHandler):
           email_address = user.nickname()
           new_user = NewUser.query().filter(NewUser.email == email_address).get()
           if new_user:
-              self.response.write('''
-                Welcome %s %s (%s)! <br> %s <br> ''' % (
-                new_user.first_name,
-                new_user.last_name,
-                email_address,
-                signout_link_html))
+              existing_user_template = the_jinja_env.get_template('templates/existing_user.html')
+              existing_user_dictionary = {
+                "new_user.first_name":new_user.first_name,
+                "new_user.last_name":new_user.last_name,
+                "email_address":email_address,
+                "signout_link_html":signout_link_html,
+              }
+              self.response.write(existing_user_template.render(existing_user_dictionary))
           else:
             # Registration form for a first-time visitor:
-            self.response.write('''
-                Welcome to our site, %s!  Please sign up! <br>
-                <form method="post" action="/signup">
-                <input type="text" name="first_name">
-                <input type="text" name="last_name">
-                <input type="number" name="grade_of_student">
-                <input type="hidden" name="email" value ="%s">
-                <input type="submit">
-                </form><br> %s <br>
-                ''' % (email_address, email_address, signout_link_html))
+            signup_template = the_jinja_env.get_template('templates/signup.html')
+            signup_dictionary ={
+                "signout_link_html" : signout_link_html,
+                "email_address" : email_address,
+            }
+            self.response.write(signup_template.render(signup_dictionary))
         else:
           # If the user isn't logged in...
           login_url = users.create_login_url('/signup')
           login_html_element = '<a href="%s">Sign in</a>' % login_url
-          self.response.write('Please log in.<br>' + login_html_element)
+          signin_template = the_jinja_env.get_template('templates/signin.html')
+          signin_dictionary = {
+            "login_html_element":login_html_element,
+          }
+          self.response.write(signin_template.render(signin_dictionary))
 
     def post(self):
         first_name = self.request.get("first_name")
@@ -72,28 +74,31 @@ class LoginPage(webapp2.RequestHandler):
           email_address = user.nickname()
           new_user = NewUser.query().filter(NewUser.email == email_address).get()
           if new_user:
-              self.response.write('''
-                Welcome %s %s (%s)! <br> %s <br> ''' % (
-                new_user.first_name,
-                new_user.last_name,
-                email_address,
-                signout_link_html))
+              existing_user_template = the_jinja_env.get_template('templates/existing_user.html')
+              existing_user_dictionary = {
+                "new_user.first_name":new_user.first_name,
+                "new_user.last_name":new_user.last_name,
+                "email_address":email_address,
+                "signout_link_html":signout_link_html,
+              }
+              self.response.write(existing_user_template.render(existing_user_dictionary))
           else:
             # Registration form for a first-time visitor:
-            self.response.write('''
-                Welcome to our site, %s!  Please sign up! <br>
-                <form method="post" action="/signup">
-                <input type="text" name="first_name">
-                <input type="text" name="last_name">
-                <input type="number" name="grade_of_students">
-                <input type="submit">
-                </form><br> %s <br>
-                ''' % (email_address, signout_link_html))
+            signup_template = the_jinja_env.get_template('templates/signup.html')
+            signup_dictionary ={
+                "signout_link_html" : signout_link_html,
+                "email_address" : email_address,
+            }
+            self.response.write(signup_template.render(signup_dictionary))
         else:
           # If the user isn't logged in...
           login_url = users.create_login_url('/signup')
           login_html_element = '<a href="%s">Sign in</a>' % login_url
-          self.response.write('Please log in.<br>' + login_html_element)
+          signin_template = the_jinja_env.get_template('templates/signin.html')
+          signin_dictionary = {
+            "login_html_element":login_html_element,
+          }
+          self.response.write(signin_template.render(signin_dictionary))
     def get(self):
         self.doStuff()
     def post(self):
@@ -110,11 +115,7 @@ class DashboardPage(webapp2.RequestHandler):
         new_user = NewUser.query().filter(NewUser.email == email_address).get(use_cache=False, use_memcache=False)
         print(new_user)
         self.response.write("Welcome, "+ email_address)
-
         main_template = the_jinja_env.get_template('templates/main.html')
-        # home_dictionary ={
-        #
-        # }
         self.response.write(main_template.render())
         signout_link_html = '<a href="%s">sign out</a>' % (
                   users.create_logout_url('/'))
