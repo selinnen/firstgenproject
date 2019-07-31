@@ -28,8 +28,6 @@ button{
 }
 img{
   padding-top:80px;
-  height:5%;
-  width:8%;
   max-width: 100%;
   height: auto;
   margin-left:20px;
@@ -46,7 +44,7 @@ img{
 
 }
 #timeline{
-  height:300px;
+  height:250px;
   width:400px;
   margin-top: 50px;
   margin-left: 80px;
@@ -54,15 +52,15 @@ img{
   color: white;
   background-color: lightblue;
   text-shadow: 2px 1px #D3D3D3;
-  border-radius: 30px;
+  border-radius: 25px;
   font-family: 'Righteous', cursive;
   font-size: 40px;
 }
 
 #aboutus{
-  height:300px;
+  height:250px;
   width:400px;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-left: 50px;
   margin-right: 50px;
   color: white;
@@ -103,7 +101,7 @@ li button {
   position: relative;
   top: 9px;
 }
-ul {
+#top {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -116,6 +114,15 @@ ul {
   border-radius: 10px;
   padding: 5px;
   background-color: lightblue;
+}
+#body{
+  list-style-type: none;
+  margin: 0;
+  padding-bottom: 20px;
+  justify-content: space-between;
+  display: flex;
+  overflow: hidden;
+  margin-top: 0;
 }
 
 .bottom_bar{
