@@ -8,18 +8,19 @@
   </head>
   <body>
     <div class="intro">
-      <ul>
+      <ul id="top">
       <li> <h4 id="email">Welcome, {{userfirstName}}  {{userlastName}}</h4></li>
         <li> <h2 id="introductory">The Ultimate Guide for High School Students</h2> </li>
       <li> <button id="signout" onclick="window.location.href='/'">Sign Out</button></li>
       </ul>
     </div>
-    <img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt="">
-    <button id="timeline" onclick="window.location.href='/timeline'">Timeline for You</button>
-    <button id="aboutus" onclick="window.location.href='/aboutus'">About Us</button>
-    <img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt="">
+    <ul id="body">
+      <li><img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt=""></li>
+      <li><button id="timeline" onclick="window.location.href='/timeline'">Timeline for You</button></li>
+      <li><button id="aboutus" onclick="window.location.href='/aboutus'">About Us</button></li>
+      <li><img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt=""></li>
+    </ul>
     <div class="bottom_bar"></div>
-    {{grade_of_student}}
     {% if grade_of_student == "9" %}
     <button id="gradenine" onclick="window.location.href='/gradenineinfo'">Grade 9</button>
     {% endif %}
