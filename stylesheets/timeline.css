@@ -41,9 +41,20 @@ h1{
 
 
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
-  background-color: red;
+  background-color: aliceblue;
 }
-
+.dropdown .dropbtn {
+  cursor: pointer;
+  font-size: 16px;
+  border: solid;
+  border-radius: 8px;
+  border-color: lightblue;
+  color: black;
+  padding: 14px 16px;
+  background-color: ivory;
+  font-family: inherit;
+  margin: 0;
+}
 .dropdown-content {
   display: none;
   position: absolute;
