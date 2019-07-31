@@ -19,23 +19,23 @@
     <button id="aboutus" onclick="window.location.href='/aboutus'">About Us</button>
     <img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt="">
     <div class="bottom_bar"></div>
-    <h1>
-    {% if grade_of_student == 9 %}
+    {{grade_of_student}}
+    {% if grade_of_student == "9" %}
     <button id="gradenine" onclick="window.location.href='/gradenineinfo'">Grade 9</button>
     {% endif %}
 
-    {% if grade_of_student == 10 %}
+    {% if grade_of_student == "10" %}
     <button id="gradeten" onclick="window.location.href='/gradeteninfo'">Grade 10</button>
     {% endif %}
 
-    {% if grade_of_student == 11 %}
+    {% if grade_of_student == "11" %}
     <button id="gradeeleven" onclick="window.location.href='/gradeeleveninfo'">Grade 11</button>
     {% endif %}
 
-    {% if grade_of_student == 12 %}
+    {% if grade_of_student == "12" %}
     <button id="gradetwelve" onclick="window.location.href='/gradetwelveinfo'">Grade 12</button>
     {% endif %}
-  </h1>
+
   </body>
 </html>
 
