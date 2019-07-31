@@ -3,17 +3,22 @@ body{
 
 }
 h4{
-  color: beige;
-  text-shadow: 1px 1px black;
+  color: black;
+  text-shadow: 1px 1px beige;
+  font-family: 'Righteous', cursive;
+  font-size: 17px;
 
 }
 h2{
-  color: beige;
-  text-shadow: 1px 1px black;
+  color: black;
+  text-shadow: 1px 1px beige;
+  font-family: 'Righteous', cursive;
+  font-size: 40px;
 
 }
 button{
-  display: inline-block;
+  /* display: inline-block; */
+
   padding: 8px 20px;
   font-size: 22px;
   cursor: pointer;
@@ -21,33 +26,51 @@ button{
   outline: none;
   box-shadow: 0 10px azure;
 }
+img{
+  padding-top:80px;
+  height:5%;
+  width:8%;
+  max-width: 100%;
+  height: auto;
+  margin-left:20px;
+  margin-top: 50px;
+  margin-right:20px;
+}
 #signout{
   border: none;
   color: lightblue;
   background-color: ivory;
   text-shadow: 2px 1px white;
   border-radius: 15px;
+  margin-top:25px;
+
 }
 #timeline{
   height:300px;
   width:400px;
-  margin-top: 100px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-top: 50px;
+  margin-left: 80px;
+  margin-right: 100px;
   color: white;
   background-color: lightblue;
   text-shadow: 2px 1px #D3D3D3;
   border-radius: 30px;
+  font-family: 'Righteous', cursive;
+  font-size: 40px;
 }
 
 #aboutus{
   height:300px;
   width:400px;
   margin-top: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
   color: white;
   background-color: lightblue;
   text-shadow: 2px 1px #D3D3D3;
   border-radius: 30px;
+  font-family: 'Righteous', cursive;
+  font-size: 40px;
 }
 
 button:hover {background-color: aliceblue}
