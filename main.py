@@ -136,9 +136,12 @@ class TimelinePage(webapp2.RequestHandler):
          self.response.write(timeline_template.render())
 
 class BerkeleyTimelinePage(webapp2.RequestHandler):
-     def get(self):
+    def get(self):
          berkeley_timeline_template = the_jinja_env.get_template('templates/berkeleytimeline.html')
          self.response.write(berkeley_timeline_template.render())
+    def post(self):
+        berkeley_timeline_template = the_jinja_env.get_template('templates/berkeleytimeline.html')
+        self.response.write(berkeley_timeline_template.render())
 
 
 
