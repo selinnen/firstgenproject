@@ -150,7 +150,14 @@ class TorontoTimelinePage(webapp2.RequestHandler):
     def get(self):
         toronto_timeline_template = the_jinja_env.get_template('templates/torontotimeline.html')
         self.response.write(toronto_timeline_template.render())
-
+class CornellTimelinePage(webapp2.RequestHandler):
+    def get(self):
+        cornell_timeline_template = the_jinja_env.get_template('templates/cornelltimeline.html')
+        self.response.write(cornell_timeline_template.render())
+class HarvardTimelinePage(webapp2.RequestHandler):
+    def get(self):
+        harvard_timeline_template = the_jinja_env.get_template('templates/harvardtimeline.html')
+        self.response.write(harvard_timeline_template.render())
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
@@ -161,5 +168,7 @@ app = webapp2.WSGIApplication([
     ('/aboutus', AboutUsPage),
     ('/berkeleytimeline', BerkeleyTimelinePage),
     ('/uwtimeline', UWTimelinePage),
-    ('/torontotimeline', TorontoTimelinePage)
+    ('/torontotimeline', TorontoTimelinePage),
+    ('/cornelltimeline', CornellTimelinePage),
+    ('/harvardtimeline', HarvardTimelinePage),
 ], debug=True)

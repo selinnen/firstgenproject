@@ -1,7 +1,7 @@
 body{
-  background-color: ivory;
-  height: auto;
-
+    background-image: url("/photos/highschool_intro.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1{
@@ -17,8 +17,12 @@ h1{
   padding: 35px;
   border: none;
   border-radius: 3px;
+  opacity: .8;
 
 
+}
+.main_login:hover {
+  opacity: 1.0;
 }
 .box1{
   background-color: ivory;
