@@ -18,13 +18,36 @@ button{
   font-size: 22px;
   cursor: pointer;
   text-align: center;
-  text-shadow: 2px 1px white;
+
   outline: none;
-  color: lightblue;
-  background-color: ivory;
-  border: none;
+
   border-radius: 15px;
   box-shadow: 0 10px azure;
+}
+#signout{
+  border: none;
+  color: lightblue;
+  background-color: ivory;
+  text-shadow: 2px 1px white;
+}
+#timeline{
+  height:300px;
+  width:400px;
+  margin-top: 100px;
+  margin-left: 200px;
+  margin-right: 200px;
+  color: white;
+  background-color: lightblue;
+  text-shadow: 2px 1px #D3D3D3;
+}
+
+#aboutus{
+  height:300px;
+  width:400px;
+  margin-top: 100px;
+  color: white;
+  background-color: lightblue;
+  text-shadow: 2px 1px #D3D3D3;
 }
 
 button:hover {background-color: aliceblue}
