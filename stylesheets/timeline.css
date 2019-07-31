@@ -54,21 +54,37 @@ ul {
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
   background-color: aliceblue;
 }
+#back{
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 22px;
+  cursor: pointer;
+  text-align: center;
+  text-shadow: 2px 1px white;
+  outline: none;
+  color: lightblue;
+  background-color: ivory;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px azure;
+}
 button:active {
   background-color: beige;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+button:hover {background-color: aliceblue}
 .dropdown .dropbtn {
   cursor: pointer;
-  font-size: 16px;
+  font-size: 22px;
   border: solid;
   text-shadow: 2px 1px white;
   outline: none;
   color: lightblue;
-  border-radius: 8px;
-  border-color: lightblue;
-  padding: 14px 16px;
+  border-radius: 15px;
+  box-shadow: 0 3px azure;
+  border-color: ivory;
+  padding: 8px 20px;
   background-color: ivory;
   font-family: inherit;
   margin: 0;
