@@ -139,8 +139,13 @@ class BerkeleyTimelinePage(webapp2.RequestHandler):
     def get(self):
          berkeley_timeline_template = the_jinja_env.get_template('templates/berkeleytimeline.html')
          self.response.write(berkeley_timeline_template.render())
-
-
+    def post(self):
+        berkeley_timeline_template = the_jinja_env.get_template('templates/berkeleytimeline.html')
+        self.response.write(berkeley_timeline_template.render())
+class UWTimelinePage(webapp2.RequestHandler):
+    def get(self):
+        uw_timeline_template = the_jinja_env.get_template('templates/uwtimeline.html')
+        self.response.write(uw_timeline_template.render())
 
 
 app = webapp2.WSGIApplication([
@@ -151,4 +156,5 @@ app = webapp2.WSGIApplication([
     ('/timeline', TimelinePage),
     ('/aboutus', AboutUsPage),
     ('/berkeleytimeline', BerkeleyTimelinePage),
+    ('/uwtimeline', UWTimelinePage)
 ], debug=True)
