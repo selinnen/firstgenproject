@@ -4,7 +4,7 @@
   border-color: lightblue;
   border-radius: 5px;
   border-width: thick;
-  margin-top: 45px;
+  margin-top: 35px;
 
 }
 
@@ -29,27 +29,45 @@ h1{
   margin-bottom: 5px;
 
 
+
 }
 #top_bar{
+  margin-top: 0;
+  background-color: lightblue;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  display: flex;
   border: 5px solid powderblue;
   margin-top: 0;
   border-style: solid;
   border-radius: 10px;
-  padding: 15px;
+  padding: 5px;
   background-color: lightblue;
 }
+
 
 
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
   background-color: aliceblue;
 }
+button:active {
+  background-color: beige;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 .dropdown .dropbtn {
   cursor: pointer;
   font-size: 16px;
   border: solid;
+  text-shadow: 2px 1px white;
+  outline: none;
+  color: lightblue;
   border-radius: 8px;
   border-color: lightblue;
-  color: black;
   padding: 14px 16px;
   background-color: ivory;
   font-family: inherit;
