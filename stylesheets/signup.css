@@ -1,0 +1,35 @@
+body{
+  background-color: ivory;
+  height: auto;
+}
+
+.Welcome{
+  font-family: Verdana;
+  color: #FFE4E1;
+  text-shadow: 3px 2px pink;
+  text-align: center;
+  text-decoration: underline overline;
+}
+
+#user_email{
+  font-family: Verdana;
+  color: #00BFFF;
+  text-shadow: 3px 2px lightblue;
+  text-align: center;
+  text-decoration: underline overline;
+}
+
+h3 {
+  text-align: center;
+}
+
+.box{
+  margin-left: 34%;
+  background-color: lightblue;
+  width: 375px;
+  margin-top: 0px;
+  padding: 35px;
+  border: none;
+  border-radius: 3px;
+
+}
