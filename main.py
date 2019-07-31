@@ -112,14 +112,16 @@ class DashboardPage(webapp2.RequestHandler):
         print(user)
         email_address = user.nickname()
         print(email_address)
-
         print("Number of users:" + str(len(NewUser.query().fetch())))
         new_user = NewUser.query().filter(NewUser.email == email_address).get()
         print(new_user.grade_of_student)
+        print(new_user.first_name)
         # self.response.write("Welcome, "+ email_address)
         email_dictionary = {
             "email_address" : email_address,
             "grade_of_student": new_user.grade_of_student,
+            "userfirstName" : new_user.first_name,
+            "userlastName" : new_user.last_name,
             #add the grade from NewUser to the dictionary
         }
         main_template = the_jinja_env.get_template('templates/main.html')
