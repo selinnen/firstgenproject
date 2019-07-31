@@ -4,6 +4,7 @@ import jinja2
 from google.appengine.api import users
 from newuser import NewUser
 from google.appengine.ext import ndb
+import time
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -63,6 +64,7 @@ class SignUpPage(webapp2.RequestHandler):
         email = self.request.get("email")
         user = NewUser(first_name = first_name, last_name = last_name, grade_of_student =grade_of_student, email = email)
         user.put()
+        time.sleep(.1)
         self.redirect('/dashboard')
 
 class LoginPage(webapp2.RequestHandler):
@@ -110,13 +112,15 @@ class DashboardPage(webapp2.RequestHandler):
         print(user)
         email_address = user.nickname()
         print(email_address)
-        ndb.get_context().clear_cache()
+
         print("Number of users:" + str(len(NewUser.query().fetch())))
-        new_user = NewUser.query().filter(NewUser.email == email_address).get(use_cache=False, use_memcache=False)
-        print(new_user)
+        new_user = NewUser.query().filter(NewUser.email == email_address).get()
+        print(new_user.grade_of_student)
         # self.response.write("Welcome, "+ email_address)
-        email_dictionary ={
+        email_dictionary = {
             "email_address" : email_address,
+            "grade_of_student": new_user.grade_of_student,
+            #add the grade from NewUser to the dictionary
         }
         main_template = the_jinja_env.get_template('templates/main.html')
         self.response.write(main_template.render(email_dictionary))
