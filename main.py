@@ -5,6 +5,11 @@ from google.appengine.api import users
 from newuser import NewUser
 from google.appengine.ext import ndb
 import time
+# Import smtplib for the actual sending function
+import smtplib
+import ssl
+# Import the email modules we'll need
+from email.mime.text import MIMEText
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -168,6 +173,29 @@ class GradeNineInfo(webapp2.RequestHandler):
     def get(self):
         grade_nine_info_template = the_jinja_env.get_template('templates/gradenineinfo.html')
         self.response.write(grade_nine_info_template.render())
+    def post(self):
+        question = self.request.get("question")
+        print("Question is:" + question)
+        time.sleep(.1)
+        self.redirect('/gradenineinfo')
+        msg = MIMEText(question)
+
+        # me == the sender's email address
+        # you == the recipient's email address
+        msg['Subject'] = 'Emily and Selina'
+        msg['From'] = "projectfirstgenask@gmail.com"
+        msg['To'] = "ted107mk@gmail.com"
+
+        # Send the message via our own SMTP server, but don't include the
+        # envelope header.
+        smtpobj = smtplib.SMTP('smtp.gmail.com', 587)
+        smtpobj.ehlo()
+        smtpobj.starttls()
+        smtpobj.ehlo()
+        smtpobj.login("projectfirstgenask@gmail.com", "projectfirstgen1")
+        smtpobj.sendmail("projectfirstgenask@gmail.com", "ted107mk@gmail.com", msg.as_string())
+        smtpobj.close()
+
 class GradeTenInfo(webapp2.RequestHandler):
     def get(self):
         grade_ten_info_template = the_jinja_env.get_template('templates/gradeteninfo.html')
