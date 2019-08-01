@@ -1,5 +1,8 @@
 body{
   background-color: ivory;
+  margin:0;
+  padding:0;
+  height:100%;
 
 }
 h3{
@@ -139,19 +142,27 @@ li button {
   overflow: hidden;
   margin-top: 0;
 }
+#footer{
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
 
 .bottom_bar{
   border: 5px solid powderblue;
   border-style: solid;
-  position: absolute;
-  bottom: 8px;
-  width: 95.8%;
   border-radius: 10px;
   padding: 18px;
   background-color: lightblue;
-
 }
-
+.container {
+   min-height:100%;
+   position:relative;
+}
+.body {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
 /* #email{
   position: absolute;
   top: 9px;
