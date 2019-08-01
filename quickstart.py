@@ -49,7 +49,7 @@ def putEvents():
         start = event['start'].get('dateTime', event['start'].get('date'))
         newEvent = EventModel(time = start, event_name = event['summary'])
         newEvent.put()
-        sleep(0.1)
+        time.sleep(.1)
 
 
 
