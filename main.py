@@ -164,6 +164,22 @@ class HarvardTimelinePage(webapp2.RequestHandler):
     def get(self):
         harvard_timeline_template = the_jinja_env.get_template('templates/harvardtimeline.html')
         self.response.write(harvard_timeline_template.render())
+class GradeNineInfo(webapp2.RequestHandler):
+    def get(self):
+        grade_nine_info_template = the_jinja_env.get_template('templates/gradenineinfo.html')
+        self.response.write(grade_nine_info_template.render())
+class GradeTenInfo(webapp2.RequestHandler):
+    def get(self):
+        grade_ten_info_template = the_jinja_env.get_template('templates/gradeteninfo.html')
+        self.response.write(grade_ten_info_template.render())
+class GradeElevenInfo(webapp2.RequestHandler):
+    def get(self):
+        grade_eleven_info_template = the_jinja_env.get_template('templates/gradeeleveninfo.html')
+        self.response.write(grade_eleven_info_template.render())
+class GradeTwelveInfo(webapp2.RequestHandler):
+    def get(self):
+        grade_twelve_info_template = the_jinja_env.get_template('templates/gradetwelveinfo.html')
+        self.response.write(grade_twelve_info_template.render())
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
@@ -177,4 +193,8 @@ app = webapp2.WSGIApplication([
     ('/torontotimeline', TorontoTimelinePage),
     ('/cornelltimeline', CornellTimelinePage),
     ('/harvardtimeline', HarvardTimelinePage),
+    ('/gradenineinfo', GradeNineInfo),
+    ('/gradeteninfo', GradeTenInfo),
+    ('/gradeeleveninfo', GradeElevenInfo),
+    ('/gradetwelveinfo', GradeTwelveInfo)
 ], debug=True)
