@@ -1,9 +1,22 @@
+from __future__ import print_function
+import datetime
+import pickle
+import os.path
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+from quickstart import putEvents
+
 import webapp2
 import os
 import jinja2
 from google.appengine.api import users
 from newuser import NewUser
 from google.appengine.ext import ndb
+import requests
+from eventmodel import EventModel
+import time
+
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -128,6 +141,10 @@ class AboutUsPage(webapp2.RequestHandler):
     def get(self):
         about_us_template = the_jinja_env.get_template('templates/aboutus.html')
         self.response.write(about_us_template.render())
+        putEvents()
+        new_event = EventModel.query().fetch()
+        self.response.write(new_event)
+
 
 
 class TimelinePage(webapp2.RequestHandler):
