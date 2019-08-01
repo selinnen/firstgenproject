@@ -1,5 +1,6 @@
 #prezi-player{
   height: 70vh;
+  width:100%;
   border-style: solid;
   border-color: lightblue;
   border-radius: 5px;
@@ -86,6 +87,36 @@ button:hover {background-color: aliceblue}
   border-color: ivory;
   padding: 8px 20px;
   background-color: ivory;
+  font-family: inherit;
+  margin: 0;
+}
+.prezi_buttons #next_button{
+  cursor: pointer;
+  font-size: 15px;
+  border: solid;
+  text-shadow: 2px 1px lightblue;
+  outline: none;
+  color: ivory;
+  border-radius: 15px;
+  box-shadow: 0 3px lightblue;
+  border-color: ivory;
+  padding: 8px 20px;
+  background-color: lightblue;
+  font-family: inherit;
+  margin: 0;
+}
+.prezi_buttons #previous_button{
+  cursor: pointer;
+  font-size: 15px;
+  border: solid;
+  text-shadow: 2px 1px lightblue;
+  outline: none;
+  color: ivory;
+  border-radius: 15px;
+  box-shadow: 0 3px lightblue;
+  border-color: ivory;
+  padding: 8px 20px;
+  background-color: lightblue;
   font-family: inherit;
   margin: 0;
 }
