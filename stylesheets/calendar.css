@@ -1,0 +1,116 @@
+body{
+    background-image: url("https://i.kinja-img.com/gawker-media/image/upload/s--2Q-XJRbO--/c_scale,f_auto,fl_progressive,q_80,w_800/m8vqhbxthvcsagvgnk34.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#top_bar{
+  border: 5px solid powderblue;
+  margin-top: 0;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: lightblue;
+  text-align: center;
+  font-family: 'Righteous', cursive;
+  font-size: 40px;
+  text-decoration: underline overline;
+  color:white;
+
+}
+#back{
+  border: none;
+  color: lightblue;
+  background-color: ivory;
+  text-shadow: 2px 1px white;
+  border-radius: 15px;
+  margin-top:25px;
+  display: block;
+  text-align: center;
+  position: relative;
+  top: 3px;
+  padding: 8px 20px;
+  font-size: 22px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  right:30px;
+  box-shadow: 0 10px azure;
+  position: absolute;
+}
+button:hover {background-color: aliceblue}
+
+button:active {
+  background-color: beige;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+button{
+  padding: 8px 20px;
+  font-size: 22px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  box-shadow: 0 10px azure;
+}
+/* .bottom_bar{
+  border: 5px solid powderblue;
+  border-style: solid;
+  position: absolute;
+  bottom: 0;
+  width: 95.8%;
+  border-radius: 10px;
+} */
+
+
+h1{
+  color: beige;
+  text-shadow: 2px 1px gray;
+  font-family: 'Righteous', cursive;
+  font-size: 17px;
+
+}
+.container{
+  height:100%;
+}
+
+.main_login{
+  background-color: lightblue;
+  width: 375px;
+  margin-top: 50px;
+  padding: 35px;
+  border: none;
+  border-radius: 30px;
+  opacity: .8;
+  margin-left:500px;
+  margin-bottom: 100px;
+  font-family: 'Righteous', cursive;
+  font-size: 17px;
+
+}
+.numberCircle {
+  border-radius: 50%;
+  behavior: url(PIE.htc);
+  /* remove if you don't care about IE8 */
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  background: lightblue;
+  border: 2px solid #666;
+  color: red;
+  text-align: center;
+  font: 32px Arial, sans-serif;
+}
+#number{
+  color:SlateGray;
+}
+#time{
+  color:SlateGray;
+
+}
+#name{
+  color:SlateGray;
+}
+.main_login:hover {
+  opacity: 1.0;
+}
+}

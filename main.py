@@ -3,9 +3,6 @@ import datetime
 import pickle
 import os.path
 from googleapiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
-from quickstart import putEvents
 
 import webapp2
 import os
@@ -17,6 +14,10 @@ import requests
 from eventmodel import EventModel
 import time
 
+import google.oauth2.credentials
+import google_auth_oauthlib.flow
+from requests_toolbelt.adapters import appengine
+appengine.monkeypatch()
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -76,6 +77,7 @@ class SignUpPage(webapp2.RequestHandler):
         email = self.request.get("email")
         user = NewUser(first_name = first_name, last_name = last_name, grade_of_student =grade_of_student, email = email)
         user.put()
+        time.sleep(.1)
         self.redirect('/dashboard')
 
 class LoginPage(webapp2.RequestHandler):
@@ -89,7 +91,8 @@ class LoginPage(webapp2.RequestHandler):
           if new_user:
               existing_user_template = the_jinja_env.get_template('templates/existing_user.html')
               existing_user_dictionary = {
-                "new_user.first_name":new_user.first_name,
+                "new_user":new_user,
+                 "new_user.first_name":new_user.first_name,
                 "new_user.last_name":new_user.last_name,
                 "email_address":email_address,
                 "signout_link_html":signout_link_html,
@@ -125,7 +128,7 @@ class DashboardPage(webapp2.RequestHandler):
         print(email_address)
         ndb.get_context().clear_cache()
         print("Number of users:" + str(len(NewUser.query().fetch())))
-        new_user = NewUser.query().filter(NewUser.email == email_address).get(use_cache=False, use_memcache=False)
+        new_user = NewUser.query().filter(NewUser.email == email_address).get()
         print(new_user)
         # self.response.write("Welcome, "+ email_address)
         email_dictionary ={
@@ -141,11 +144,69 @@ class AboutUsPage(webapp2.RequestHandler):
     def get(self):
         about_us_template = the_jinja_env.get_template('templates/aboutus.html')
         self.response.write(about_us_template.render())
-        putEvents()
-        new_event = EventModel.query().fetch()
-        self.response.write(new_event)
 
+class CalendarPage(webapp2.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        new_event = EventModel.query().filter(EventModel.email == user.nickname()).order(EventModel.time).fetch()
+        calendar_template = the_jinja_env.get_template('templates/calendar.html')
+        calendar_dict = {
+            "new_event" : new_event,
+        }
+        self.response.write(calendar_template.render(calendar_dict))
 
+class LoadDataPage(webapp2.RequestHandler):
+    def get(self):
+        # putEvents()
+        flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
+            'client_secret.json',
+            scopes=['https://www.googleapis.com/auth/calendar.readonly'],
+            )
+        flow.code_verifier = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+        flow.redirect_uri = 'https://project-first-gen.appspot.com/cal-redirect'
+        authorization_url, state = flow.authorization_url(
+            # Enable offline access so that you can refresh an access token without
+            # re-prompting the user for permission. Recommended for web server apps.
+            access_type='offline',
+            # Enable incremental authorization. Recommended as a best practice.
+            include_granted_scopes='true',
+            )
+        print(authorization_url.encode('ascii', 'ignore'))
+        print(type(authorization_url.encode('ascii', 'ignore')))
+        self.redirect(authorization_url.encode('ascii', 'ignore'))
+
+class CalRedirectPage(webapp2.RequestHandler):
+    def get(self):
+        flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
+            'client_secret.json',
+            scopes=['https://www.googleapis.com/auth/calendar.readonly'],
+            )
+        flow.code_verifier = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+        flow.redirect_uri = 'https://project-first-gen.appspot.com/cal-redirect'
+
+        flow.fetch_token(code=self.request.get("code"))
+
+        credentials = flow.credentials
+
+        service = build('calendar', 'v3', credentials=credentials)
+
+        # Call the Calendar API
+        now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
+        print('Getting the upcoming 10 events')
+        events_result = service.events().list(calendarId='primary', timeMin=now,
+                                            maxResults=10, singleEvents=True,
+                                            orderBy='startTime').execute()
+        events = events_result.get('items', [])
+
+        if not events:
+            print('No upcoming events found.')
+        user = users.get_current_user()
+        for event in events:
+            start = event['start'].get('dateTime', event['start'].get('date'))
+            newEvent = EventModel(time = start, event_name = event['summary'], email = user.nickname())
+            newEvent.put()
+            time.sleep(.1)
+        self.redirect("/calendar")
 
 class TimelinePage(webapp2.RequestHandler):
      def get(self):
@@ -188,4 +249,7 @@ app = webapp2.WSGIApplication([
     ('/torontotimeline', TorontoTimelinePage),
     ('/cornelltimeline', CornellTimelinePage),
     ('/harvardtimeline', HarvardTimelinePage),
+    ('/calendar', CalendarPage),
+    ('/seed-data', LoadDataPage),
+    ('/cal-redirect', CalRedirectPage),
 ], debug=True)

@@ -7,7 +7,9 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from eventmodel import EventModel
 import time
-# If modifying these scopes, delete the file token.pickle.
+from google.appengine.api import users
+
+
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
 def putEvents():
@@ -45,9 +47,12 @@ def putEvents():
 
     if not events:
         print('No upcoming events found.')
+
+    user = users.get_current_user()
+    # print("Current logged in user:" + user)
     for event in events:
         start = event['start'].get('dateTime', event['start'].get('date'))
-        newEvent = EventModel(time = start, event_name = event['summary'])
+        newEvent = EventModel(time = start, event_name = event['summary'], email = user.nickname())
         newEvent.put()
         time.sleep(.1)
 
@@ -55,6 +60,5 @@ def putEvents():
 
 
 
-
-# if __name__ == '__main__':
-#     printEvents()
+if __name__ == '__main__':
+    putEvents()
