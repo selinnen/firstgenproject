@@ -20,7 +20,7 @@
       <div class="prezi_buttons">
         <ul id="control_bar">
         <li><button id="previous_button"  type="button" onclick="previousSlide()">Previous</button></li>
-        <li><input type="text" disabled></li>
+        <li><button  id="count_bar" type="text" disabled></button></li>
         <li><button id="next_button"  type="button" onclick="nextSlide()">Next</button></li>
         </ul>
       </div>
@@ -34,18 +34,50 @@
                 debug: true
           });
 
-        function nextSlide(){
-        if (player.getCurrentStep() == player.getStepCount()-1){
-        player.flyToStep(0);
-        player.nextStep();
-        }
-        else{
-        player.nextStep();
-        }
-        }
-        function previousSlide(){
-        player.previousStep();
-        }
+          if (window.performance) {
+            console.log(total)
+            document.getElementById("count_bar").innerHTML = (current + " / " + total);
+          }
+
+          function nextSlide(){
+            var current = String(player.getCurrentStep()+1);
+            var total = String(player.getStepCount()-1);
+            console.log(total);
+            console.log(current);
+            if (player.getCurrentStep() == player.getStepCount()-1){
+              player.flyToStep(0);
+              current=1;
+              document.getElementById("count_bar").innerHTML = current + " / " + total;
+              player.nextStep();
+            }
+            else{
+              player.nextStep();
+              document.getElementById("count_bar").innerHTML = current + " / " + total;
+            }
+          }
+
+          function previousSlide(){
+            var current = String(player.getCurrentStep()-1);
+            var total = String(player.getStepCount()-1);
+            console.log(total);
+            console.log(current);
+            if (player.getCurrentStep() == 0){
+              current=4;
+              player.flyToStep(5);
+              document.getElementById("count_bar").innerHTML = current + " / " + total;
+              player.previousStep();
+            }
+            else if (player.getCurrentStep() == 1) {
+              current=5;
+              document.getElementById("count_bar").innerHTML = current + " / " + total;
+              player.previousStep();
+            }
+
+            else{
+              player.previousStep();
+              document.getElementById("count_bar").innerHTML = current + " / " + total;
+            }
+}
 </script>
 
   </body>
