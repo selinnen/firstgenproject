@@ -8,19 +8,29 @@
     <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div class="container">
     <div class="intro">
-      <ul>
+      <ul id="top">
       <li> <h4 id="email">Welcome, {{email_address}}</h4></li>
         <li> <h2 id="introductory">The Ultimate Guide for High School Students</h2> </li>
       <li> <button id="signout" onclick="window.location.href='/'">Sign Out</button></li>
       </ul>
     </div>
-    <img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt="">
-    <button id="timeline" onclick="window.location.href='/timeline'">Timeline for You</button>
-    <button id="aboutus" onclick="window.location.href='/aboutus'">About Us</button>
-    <img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt="">
-    <button id="seed-data" onclick="window.location.href='/seed-data'">Load your data</button>
-    <button id="calendar" onclick="window.location.href='/calendar'">Calendar</button>
+    <div class="body1">
+      <ul id="body">
+        <li><img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt=""></li>
+        <li><button id="timeline" class="main_button" onclick="window.location.href='/timeline'">Timeline for You</button></li>
+        <li><button id="aboutus" class="main_button" onclick="window.location.href='/aboutus'">About Us</button></li>
+        <li><img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt=""></li>
+      </ul>
+      <div class="body2">
+        <ul id="body">
+          <li><img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt=""></li>
+          <li><button id="seed-data" class="main_button" onclick="window.location.href='/seed-data'">Load your data</button></li>
+          <li><button id="calendar" class="main_button" onclick="window.location.href='/calendar'">Calendar</button></li>
+          <li><img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt=""></li>
+        </ul>
+      </div>
     <div class="grade_button">
       {% if grade_of_student == "9" %}
         <button class="button" id="gradenine" onclick="window.location.href='/gradenineinfo'">Grade 9</button>
@@ -38,6 +48,62 @@
         <button class="button" id="gradetwelve" onclick="window.location.href='/gradetwelveinfo'">Grade 12</button>
       {% endif %}
     </div>
-    <div class="bottom_bar"></div>
+  </div>
+  <div class="footer">
+    <div id="bottom_bar"></div>
+  </div>
+</div>
   </body>
 </html>
+
+<!-- <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="intro">
+      <ul id="top">
+      <li> <h3 id="email">Welcome, {{userfirstName}}  {{userlastName}}</h3></li>
+        <li> <h2 id="introductory">The Ultimate Guide for First-Generation High School Students</h2> </li>
+      <li> <button id="signout" onclick="window.location.href='/'">Sign Out</button></li>
+      </ul>
+    </div>
+    <div class="body">
+    <ul id="body">
+      <li><img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt=""></li>
+      <li class="but"><button class="main_buttons" id="timeline" onclick="window.location.href='/timeline'">Timeline for You</button></li>
+      <li class="but"><button class="main_buttons" id="aboutus" onclick="window.location.href='/aboutus'">About Us</button></li>
+      <li class="but"><button id="seed-data" onclick="window.location.href='/seed-data'">Load your data</button></li>
+      <li class="but"><button id="calendar" onclick="window.location.href='/calendar'">Calendar</button></li>
+      <li><img src="https://media2.giphy.com/media/fBPHYTN8wmEyiAUvTV/source.gif" alt=""></li>
+    </ul>
+    <div class="grade_button">
+    {% if grade_of_student == "9" %}
+      <button class="button" id="gradenine" onclick="window.location.href='/gradenineinfo'">Grade 9</button>
+    {% endif %}
+
+    {% if grade_of_student == "10" %}
+      <button class="button" id="gradeten" onclick="window.location.href='/gradeteninfo'">Grade 10</button>
+    {% endif %}
+
+    {% if grade_of_student == "11" %}
+      <button class="button" id="gradeeleven" onclick="window.location.href='/gradeeleveninfo'">Grade 11</button>
+    {% endif %}
+
+    {% if grade_of_student == "12" %}
+      <button class="button" id="gradetwelve" onclick="window.location.href='/gradetwelveinfo'">Grade 12</button>
+    {% endif %}
+    </div>
+      </div>
+      <div class="footer">
+        <div id="bottom_bar"></div>
+      </div>
+
+  </div>
+  </body>
+</html> -->

@@ -220,7 +220,6 @@ li button {
 
 
 
-main.css
 body{
   background-color: ivory;
 
@@ -242,7 +241,7 @@ h2{
 button{
   /* display: inline-block; */
 
-  padding: 8px 20px;
+  padding: 8px 10px;
   font-size: 22px;
   cursor: pointer;
   text-align: center;
@@ -251,8 +250,8 @@ button{
 }
 img{
   padding-top:80px;
-  height:5%;
-  width:8%;
+  height:20%;
+  width:30%;
   max-width: 100%;
   height: auto;
   margin-left:20px;
@@ -269,66 +268,80 @@ img{
 
 }
 #timeline{
-  height:300px;
-  width:400px;
+  height: 20vh;
+  width:40vh;
   margin-top: 50px;
   margin-left: 80px;
   margin-right: 100px;
   color: white;
   background-color: lightblue;
   text-shadow: 2px 1px #D3D3D3;
-  border-radius: 30px;
+  border-radius: 25px;
   font-family: 'Righteous', cursive;
   font-size: 40px;
 }
 
 #aboutus{
-  height:300px;
-  width:400px;
-  margin-top: 100px;
-  margin-left: 50px;
-  margin-right: 50px;
+  height: 20vh;
+  width:40vh;
+  margin-top: 50px;
+  margin-left: 80px;
+  margin-right: 100px;
   color: white;
   background-color: lightblue;
   text-shadow: 2px 1px #D3D3D3;
-  border-radius: 30px;
+  border-radius: 25px;
   font-family: 'Righteous', cursive;
   font-size: 40px;
 }
 
 #seed-data{
-  height:300px;
-  width:400px;
-  margin-top: 50px;
-  margin-left: 240px;
+  height: 20vh;
+  width:40vh;
+  margin-left: 80px;
   margin-right: 100px;
   color: white;
   background-color: lightblue;
   text-shadow: 2px 1px #D3D3D3;
-  border-radius: 30px;
+  border-radius: 25px;
   font-family: 'Righteous', cursive;
   font-size: 40px;
 }
 
 #calendar{
-  height:300px;
-  width:400px;
-  margin-top: 100px;
-  margin-left: 50px;
-  margin-right: 50px;
+  height: 20vh;
+  width:40vh;
+  margin-left: 80px;
+  margin-right: 100px;
   color: white;
   background-color: lightblue;
   text-shadow: 2px 1px #D3D3D3;
-  border-radius: 30px;
+  border-radius: 25px;
   font-family: 'Righteous', cursive;
   font-size: 40px;
 }
+.body1 #body .main_button:hover {background-color: aliceblue}
+
+.body1 #body .main_button:active {
+  background-color: beige;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+
+}
+.body2 #body .main_button:hover {background-color: aliceblue}
+
+.body2 #body .main_button:active {
+  background-color: beige;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+
+}
 .button{
-  height:300px;
-  width:400px;
-  margin-top: 100px;
-  margin-left: 50px;
-  margin-right: 50px;
+  height: 20vh;
+  width:40vh;
+  margin-right: 80px;
+  margin-left: 535px;
+  margin-top: 0;
   color: white;
   background-color: lightblue;
   text-shadow: 2px 1px #D3D3D3;
@@ -357,8 +370,6 @@ li h4 {
   display: block;
   text-align: center;
   position: relative;
-  top: 4px;
-
 }
 li button {
   display: block;
@@ -366,29 +377,59 @@ li button {
   position: relative;
   top: 9px;
 }
-ul {
+
+.intro{
+  text-align: center:
+}
+#top {
   list-style-type: none;
   margin: 0;
   padding: 0;
   justify-content: space-between;
   display: flex;
   overflow: hidden;
+  /* border: 5px solid powderblue; */
+  margin-top: 0;
+  /* border-style: solid; */
+  /* border-radius: 10px; */
+}
+#body{
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+  justify-content: space-between;
+  display: flex;
+  overflow: hidden;
+  margin-top: 0;
+}
+.footer{
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+#bottom_bar{
+  border: 5px solid powderblue;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: lightblue;
+}
+.container {
+   min-height:100%;
+   position:relative;
+}
+.body1 {
+   padding:10px;
+}
+.grade_button{
+  margin-bottom: 50px;
+}
+.intro{
   border: 5px solid powderblue;
   margin-top: 0;
   border-style: solid;
   border-radius: 10px;
-  padding: 5px;
+  padding: 15px;
   background-color: lightblue;
-}
-
-.bottom_bar{
-  border: 5px solid powderblue;
-  border-style: solid;
-  position: absolute;
-  bottom: -400px;
-  width: 95.8%;
-  border-radius: 10px;
-  padding: 18px;
-  background-color: lightblue;
-
+  text-align: center;
 }
