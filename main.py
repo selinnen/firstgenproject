@@ -52,14 +52,16 @@ class SignUpPage(webapp2.RequestHandler):
           email_address = user.nickname()
           new_user = NewUser.query().filter(NewUser.email == email_address).get()
           if new_user:
-              existing_user_template = the_jinja_env.get_template('templates/existing_user.html')
-              existing_user_dictionary = {
-                "new_user.first_name":new_user.first_name,
-                "new_user.last_name":new_user.last_name,
-                "email_address":email_address,
-                "signout_link_html":signout_link_html,
-              }
-              self.response.write(existing_user_template.render(existing_user_dictionary))
+              # existing_user_template = the_jinja_env.get_template('templates/existing_user.html')
+              # existing_user_dictionary = {
+              #   "new_user" : new_user,
+              #   "new_user.first_name":new_user.first_name,
+              #   "new_user.last_name":new_user.last_name,
+              #   "email_address":email_address,
+              #   "signout_link_html":signout_link_html,
+              # }
+              # self.response.write(existing_user_template.render(existing_user_dictionary))
+              self.redirect('/dashboard')
           else:
             # Registration form for a first-time visitor:
             signup_template = the_jinja_env.get_template('templates/signup.html')
