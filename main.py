@@ -49,7 +49,7 @@ class SignUpPage(webapp2.RequestHandler):
         if user:
           signout_link_html = '<a href="%s">sign out</a>' % (
                     users.create_logout_url('/'))
-          email_address = user.nickname()
+          email_address = user.email()
           new_user = NewUser.query().filter(NewUser.email == email_address).get()
           if new_user:
               # existing_user_template = the_jinja_env.get_template('templates/existing_user.html')
@@ -96,7 +96,7 @@ class LoginPage(webapp2.RequestHandler):
         if user:
           signout_link_html = '<a href="%s">sign out</a>' % (
                     users.create_logout_url('/'))
-          email_address = user.nickname()
+          email_address = user.email()
           new_user = NewUser.query().filter(NewUser.email == email_address).get()
           if new_user:
               existing_user_template = the_jinja_env.get_template('templates/existing_user.html')
@@ -134,7 +134,7 @@ class DashboardPage(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         print(user)
-        email_address = user.nickname()
+        email_address = user.email()
         print(email_address)
         print("Number of users:" + str(len(NewUser.query().fetch())))
         new_user = NewUser.query().filter(NewUser.email == email_address).get()
@@ -161,7 +161,7 @@ class AboutUsPage(webapp2.RequestHandler):
 class CalendarPage(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
-        new_event = EventModel.query().filter(EventModel.email == user.nickname()).order(EventModel.time).fetch()
+        new_event = EventModel.query().filter(EventModel.email == user.email()).order(EventModel.time).fetch()
         calendar_template = the_jinja_env.get_template('templates/calendar.html')
         calendar_dict = {
             "new_event" : new_event,
@@ -213,13 +213,12 @@ class CalRedirectPage(webapp2.RequestHandler):
 
         if not events:
             print('No upcoming events found.')
-        user = users.get_current_user()
         for event in events:
             start = event['start'].get('dateTime', event['start'].get('date'))
-            newEvent = EventModel(time = start, event_name = event['summary'], email = user.nickname())
+            newEvent = EventModel(time = start, event_name = event['summary'], email = event['creator']['email'])
             newEvent.put()
             time.sleep(.1)
-        self.redirect("/calendar")
+        self.response.write("You have successfully loaded your data!")
 
 class TimelinePage(webapp2.RequestHandler):
      def get(self):
@@ -258,7 +257,7 @@ class GradeNineInfo(webapp2.RequestHandler):
         password= self.request.get("password")
         user = users.get_current_user()
         print(user)
-        email_address = user.nickname()
+        email_address = user.email()
         print("Question is:" + question)
         time.sleep(.1)
         self.redirect('/gradenineinfo')
@@ -290,7 +289,7 @@ class GradeTenInfo(webapp2.RequestHandler):
         password= self.request.get("password")
         user = users.get_current_user()
         print(user)
-        email_address = user.nickname()
+        email_address = user.email()
         print("Question is:" + question)
         time.sleep(.1)
         self.redirect('/gradeteninfo')
@@ -321,7 +320,7 @@ class GradeElevenInfo(webapp2.RequestHandler):
         password= self.request.get("password")
         user = users.get_current_user()
         print(user)
-        email_address = user.nickname()
+        email_address = user.email()
         print("Question is:" + question)
         time.sleep(.1)
         self.redirect('/gradeeleveninfo')
@@ -352,7 +351,7 @@ class GradeTwelveInfo(webapp2.RequestHandler):
         password= self.request.get("password")
         user = users.get_current_user()
         print(user)
-        email_address = user.nickname()
+        email_address = user.email()
         print("Question is:" + question)
         time.sleep(.1)
         self.redirect('/gradetwelveinfo')
