@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/stylesheets/timeline.css">
-    <script src="lib/PreziPlayer/prezi_player.js"></script>
-    <script>var d=document.createElement('div'), p=document.createElement('script'), pp=document.createElement('script'), incl; incl = function(){ d.id="prezi_player_qxbj8zhqkxry"; pp.innerHTML="var player = new PreziPlayer('"+d.id+"', {preziId: 'qxbj8zhqkxry', width: '640', height: '480'});"; document.body.appendChild(d); document.body.appendChild(pp); }; if (!window.PreziPlayer){ p.src="http://prezi.github.io/prezi-player/lib/prezi_player.js"; document.body.appendChild(p); p.onload = incl; } else { incl(); }</script>
+
+    <!-- <script>var d=document.createElement('div'), p=document.createElement('script'), pp=document.createElement('script'), incl; incl = function(){ d.id="prezi_player_qxbj8zhqkxry"; pp.innerHTML="var player = new PreziPlayer('"+d.id+"', {preziId: 'qxbj8zhqkxry', width: '640', height: '480'});"; document.body.appendChild(d); document.body.appendChild(pp); }; if (!window.PreziPlayer){ p.src="http://prezi.github.io/prezi-player/lib/prezi_player.js"; document.body.appendChild(p); p.onload = incl; } else { incl(); }</script> -->
     <title></title>
   </head>
   <body>
     <div class="navbar">
       <ul>
-        <li><button id="back"onclick="window.location.href='/dashboard'">Go Back</button></li>
+        <li><button id="back" onclick="window.location.href='/dashboard'">Go Back</button></li>
       <li><h1 id="top_bar">Student Timeline</h1></li>
         <li><div class="dropdown">
             <button class="dropbtn" onclick="myFunction()">Choose a college
@@ -28,11 +28,35 @@
       </div>
 
       <div id="prezi-player" class="player" >
-        <iframe src="https://prezi.com/player/?oid=qxbj8zhqkxry&amp;explorable=1&amp;controls=0" frameborder="0" width = "100%" height= "100%" scrolling="yes" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe>
+        <!-- <iframe src="https://prezi.com/player/?oid=qxbj8zhqkxry&amp;explorable=1&amp;controls=0" frameborder="0" width = "100%" height= "100%" scrolling="yes" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe> -->
       </div>
+        <div class="prezi_buttons">
+          <button id="previous_button"  type="button" onclick="previousSlide()">Previous</button>
+          <button id="next_button"  type="button" onclick="nextSlide()">Next</button>
+          <input type="text" disabled>
+        </div>
         <div class="bottom_bar"></div>
-
+<script src="http://prezi.github.io/prezi-player/lib/PreziPlayer/prezi_player.js"></script>
     <script>
+      var player = new PreziPlayer('prezi-player', { //id of div to embed into
+          	preziId: 'qxbj8zhqkxry', //id of prezi, visible in the url when you load the prezi on Prezi.com
+            width: "100%",
+            height: "100%",
+            debug: true
+      });
+
+function nextSlide(){
+  if (player.getCurrentStep() == player.getStepCount()-1){
+    player.flyToStep(0);
+    player.nextStep();
+  }
+  else{
+    player.nextStep();
+  }
+}
+function previousSlide(){
+  player.previousStep();
+}
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }

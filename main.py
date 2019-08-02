@@ -10,14 +10,22 @@ import jinja2
 from google.appengine.api import users
 from newuser import NewUser
 from google.appengine.ext import ndb
+
 import requests
 from eventmodel import EventModel
-import time
 
 import google.oauth2.credentials
 import google_auth_oauthlib.flow
 from requests_toolbelt.adapters import appengine
 appengine.monkeypatch()
+
+import time
+# Import smtplib for the actual sending function
+import smtplib
+import ssl
+# Import the email modules we'll need
+from email.mime.text import MIMEText
+
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -126,13 +134,16 @@ class DashboardPage(webapp2.RequestHandler):
         print(user)
         email_address = user.nickname()
         print(email_address)
-        ndb.get_context().clear_cache()
         print("Number of users:" + str(len(NewUser.query().fetch())))
         new_user = NewUser.query().filter(NewUser.email == email_address).get()
-        print(new_user)
+
         # self.response.write("Welcome, "+ email_address)
-        email_dictionary ={
+        email_dictionary = {
             "email_address" : email_address,
+            "grade_of_student": new_user.grade_of_student,
+            "userfirstName" : new_user.first_name,
+            "userlastName" : new_user.last_name,
+            #add the grade from NewUser to the dictionary
         }
         main_template = the_jinja_env.get_template('templates/main.html')
         self.response.write(main_template.render(email_dictionary))
@@ -236,6 +247,131 @@ class HarvardTimelinePage(webapp2.RequestHandler):
     def get(self):
         harvard_timeline_template = the_jinja_env.get_template('templates/harvardtimeline.html')
         self.response.write(harvard_timeline_template.render())
+class GradeNineInfo(webapp2.RequestHandler):
+    def get(self):
+        grade_nine_info_template = the_jinja_env.get_template('templates/gradenineinfo.html')
+        self.response.write(grade_nine_info_template.render())
+    def post(self):
+        question = self.request.get("question")
+        password= self.request.get("password")
+        user = users.get_current_user()
+        print(user)
+        email_address = user.nickname()
+        print("Question is:" + question)
+        time.sleep(.1)
+        self.redirect('/gradenineinfo')
+        msg = MIMEText(question)
+
+        # me == the sender's email address
+        # you == the recipient's email address
+        msg['Subject'] = 'A Question from ' + email_address
+        msg['From'] = email_address
+        msg['To'] = "projectfirstgenask@gmail.com"
+        msg['Reply-To'] = email_address
+
+        # Send the message via our own SMTP server, but don't include the
+        # envelope header.
+        smtpobj = smtplib.SMTP('smtp.gmail.com', 587)
+        smtpobj.ehlo()
+        smtpobj.starttls()
+        smtpobj.ehlo()
+        smtpobj.login("projectfirstgenask@gmail.com", password)
+        smtpobj.sendmail(email_address, "projectfirstgenask@gmail.com", msg.as_string())
+        smtpobj.close()
+
+class GradeTenInfo(webapp2.RequestHandler):
+    def get(self):
+        grade_ten_info_template = the_jinja_env.get_template('templates/gradeteninfo.html')
+        self.response.write(grade_ten_info_template.render())
+    def post(self):
+        question = self.request.get("question")
+        password= self.request.get("password")
+        user = users.get_current_user()
+        print(user)
+        email_address = user.nickname()
+        print("Question is:" + question)
+        time.sleep(.1)
+        self.redirect('/gradeteninfo')
+        msg = MIMEText(question)
+
+        # me == the sender's email address
+        # you == the recipient's email address
+        msg['Subject'] = 'A Question from ' + email_address
+        msg['From'] = email_address
+        msg['To'] = "projectfirstgenask@gmail.com"
+        msg['Reply-To'] = email_address
+
+        # Send the message via our own SMTP server, but don't include the
+        # envelope header.
+        smtpobj = smtplib.SMTP('smtp.gmail.com', 587)
+        smtpobj.ehlo()
+        smtpobj.starttls()
+        smtpobj.ehlo()
+        smtpobj.login("projectfirstgenask@gmail.com", password)
+        smtpobj.sendmail(email_address, "projectfirstgenask@gmail.com", msg.as_string())
+        smtpobj.close()
+class GradeElevenInfo(webapp2.RequestHandler):
+    def get(self):
+        grade_eleven_info_template = the_jinja_env.get_template('templates/gradeeleveninfo.html')
+        self.response.write(grade_eleven_info_template.render())
+    def post(self):
+        question = self.request.get("question")
+        password= self.request.get("password")
+        user = users.get_current_user()
+        print(user)
+        email_address = user.nickname()
+        print("Question is:" + question)
+        time.sleep(.1)
+        self.redirect('/gradeeleveninfo')
+        msg = MIMEText(question)
+
+        # me == the sender's email address
+        # you == the recipient's email address
+        msg['Subject'] = 'A Question from ' + email_address
+        msg['From'] = email_address
+        msg['To'] = "projectfirstgenask@gmail.com"
+        msg['Reply-To'] = email_address
+
+        # Send the message via our own SMTP server, but don't include the
+        # envelope header.
+        smtpobj = smtplib.SMTP('smtp.gmail.com', 587)
+        smtpobj.ehlo()
+        smtpobj.starttls()
+        smtpobj.ehlo()
+        smtpobj.login("projectfirstgenask@gmail.com", password)
+        smtpobj.sendmail(email_address, "projectfirstgenask@gmail.com", msg.as_string())
+        smtpobj.close()
+class GradeTwelveInfo(webapp2.RequestHandler):
+    def get(self):
+        grade_twelve_info_template = the_jinja_env.get_template('templates/gradetwelveinfo.html')
+        self.response.write(grade_twelve_info_template.render())
+    def post(self):
+        question = self.request.get("question")
+        password= self.request.get("password")
+        user = users.get_current_user()
+        print(user)
+        email_address = user.nickname()
+        print("Question is:" + question)
+        time.sleep(.1)
+        self.redirect('/gradetwelveinfo')
+        msg = MIMEText(question)
+
+        # me == the sender's email address
+        # you == the recipient's email address
+        msg['Subject'] = 'A Question from ' + email_address
+        msg['From'] = email_address
+        msg['To'] = "projectfirstgenask@gmail.com"
+        msg['Reply-To'] = email_address
+
+        # Send the message via our own SMTP server, but don't include the
+        # envelope header.
+        smtpobj = smtplib.SMTP('smtp.gmail.com', 587)
+        smtpobj.ehlo()
+        smtpobj.starttls()
+        smtpobj.ehlo()
+        smtpobj.login("projectfirstgenask@gmail.com", password)
+        smtpobj.sendmail(email_address, "projectfirstgenask@gmail.com", msg.as_string())
+        smtpobj.close()
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
@@ -252,4 +388,9 @@ app = webapp2.WSGIApplication([
     ('/calendar', CalendarPage),
     ('/seed-data', LoadDataPage),
     ('/cal-redirect', CalRedirectPage),
+    ('/gradenineinfo', GradeNineInfo),
+    ('/gradeteninfo', GradeTenInfo),
+    ('/gradeeleveninfo', GradeElevenInfo),
+    ('/gradetwelveinfo', GradeTwelveInfo)
+
 ], debug=True)

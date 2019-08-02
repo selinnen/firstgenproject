@@ -1,0 +1,93 @@
+body{
+  background-color: ivory;
+}
+h1{
+  color: black;
+  text-shadow: 2px 1px white;
+  text-align: center;
+
+}
+.bottom_bar{
+  border: 5px solid powderblue;
+  border-style: solid;
+  position: absolute;
+  bottom: 0;
+  width: 95.4%;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: lightblue;
+  margin-bottom: 5px;
+
+
+
+}
+#top_bar{
+  margin-top: 0;
+  background-color: lightblue;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  display: flex;
+  border: 5px solid powderblue;
+  margin-top: 0;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: lightblue;
+}
+
+
+
+.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+  background-color: aliceblue;
+}
+#back{
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 22px;
+  cursor: pointer;
+  text-align: center;
+  text-shadow: 2px 1px white;
+  outline: none;
+  color: lightblue;
+  background-color: ivory;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px azure;
+}
+button:active {
+  background-color: beige;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+input[type=text] {
+  margin: 10px 0;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 3px solid;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-color: ivory;
+  outline: black;
+  font-family: 'Righteous', cursive;
+  font-size: 15px;
+}
+
+input[type=text]:hover {
+  border: 3px solid beige;
+}
+.box{
+  background-color: lightblue;
+  width: 30%;
+  margin-left: 35%;
+  border-style: solid;
+  border-color: aliceblue;
+  border-radius: 8%;
+}
+
+.show {
+  display: block;
+}

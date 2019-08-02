@@ -11,6 +11,62 @@ font is large and when the items have a background color.
 html {
   font-family: sans-serif;
 }
+
+.intro{
+  text-align: center:
+}
+h2{
+  color: black;
+  text-shadow: 1px 1px beige;
+  font-family: 'Righteous';
+  font-size: 36px;
+
+}
+#top{
+  list-style-type: none;
+  justify-content: space-between;
+  display: flex;
+  overflow: hidden;
+  border: 5px solid powderblue;
+  margin-top: 0;
+  border-style: solid;
+  border-radius: 10px;
+  /* padding: 5px; */
+  background-color: lightblue;
+}
+button:hover {background-color: aliceblue}
+
+button:active {
+  background-color: beige;
+  box-shadow: 0 5px #666;
+  transform: translateY(4)scale3d()
+}
+li button {
+  display: block;
+  text-align: center;
+  position: relative;
+}
+button{
+  /* display: inline-block; */
+  padding: 8px 20px;
+  font-size: 22px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  box-shadow: 0 10px azure;
+}
+#signout{
+  border: none;
+  color: lightblue;
+  background-color: ivory;
+  text-shadow: 2px 1px white;
+  border-radius: 15px;
+  margin-top: 28px;
+  margin-right:15px;
+
+}
+
+
 .About_Us{
   display: flex;
   flex-direction: row;
@@ -19,6 +75,11 @@ html {
   padding-bottom: 2%;
   padding-left: 2%;
   padding-right: 2%;
+  text-align: center;
+}
+
+#aboutus {
+  text-align: center;
 }
 
 
@@ -29,7 +90,6 @@ html {
   height: 30%;
   font-size: 32px;
   color: white;
-  text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
   width: 33.33%;
 
 }
@@ -41,7 +101,6 @@ html {
   margin: 10px;
   font-size: 32px;
   color: white;
-  text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
   width: 33.33%;
 }
 
@@ -51,25 +110,80 @@ html {
   margin: 10px;
   font-size: 32px;
   color: white;
-  text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
   width: 33.33%;
+}
+#main_brian {
+  width:50%;
+  height:50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid;
+  border-color: ivory;
+  border-radius: 200px;
 }
 
 #brian {
   width:50px;
   height:50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main_emily {
+  width:74%;
+  height:35%;
+  margin-top: 90px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid;
+  border-color: ivory;
+  border-radius: 200px;
+}
+#main_selina {
+  width:50%;
+  height:50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid;
+  border-color: ivory;
+  border-radius: 200px;
 }
 #emily {
   width:50px;
   height:50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 #selina {
   width:50px;
   height:50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 #info{
   font-size: 18px;
+  text-align: center;
 }
+#emily_info{
+  font-size: 18px;
+  text-align: center;
+  margin-top: 85px;
+}
+
+.rotateimg270 {
+  -webkit-transform:rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
 
 .flex-container {
   display: flex;

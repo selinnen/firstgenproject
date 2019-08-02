@@ -1,24 +1,28 @@
 body{
   background-color: ivory;
+  margin:0;
+  padding:0;
+  height:100vh;
 
 }
-h4{
+h3{
   color: black;
   text-shadow: 1px 1px beige;
   font-family: 'Righteous', cursive;
   font-size: 17px;
+  text-align: center;
 
 }
 h2{
   color: black;
   text-shadow: 1px 1px beige;
   font-family: 'Righteous', cursive;
-  font-size: 40px;
+  font-size: 36px;
+  text-align: center;
 
 }
 button{
   /* display: inline-block; */
-
   padding: 8px 20px;
   font-size: 22px;
   cursor: pointer;
@@ -27,15 +31,28 @@ button{
   box-shadow: 0 10px azure;
 }
 img{
-  padding-top:80px;
-  height:5%;
-  width:8%;
-  max-width: 100%;
-  height: auto;
-  margin-left:20px;
+  width: 20vh;
+  height: 20vh;
+  align-items: center;
   margin-top: 50px;
+  margin-left:20px;
   margin-right:20px;
 }
+.grade_button{
+  text-align: center;
+}
+.button{
+  height: 25vh;
+  width:40vh;
+  margin-top: 0;
+  color: white;
+  background-color: lightblue;
+  text-shadow: 2px 1px #D3D3D3;
+  border-radius: 25px;
+  font-family: 'Righteous', cursive;
+  font-size: 40px;
+}
+
 #signout{
   border: none;
   color: lightblue;
@@ -46,23 +63,23 @@ img{
 
 }
 #timeline{
-  height:300px;
-  width:400px;
+  height: 25vh;
+  width:40vh;
   margin-top: 50px;
   margin-left: 80px;
   margin-right: 100px;
   color: white;
   background-color: lightblue;
   text-shadow: 2px 1px #D3D3D3;
-  border-radius: 30px;
+  border-radius: 25px;
   font-family: 'Righteous', cursive;
   font-size: 40px;
 }
 
 #aboutus{
-  height:300px;
-  width:400px;
-  margin-top: 100px;
+  height: 25vh;
+  width:40vh;
+  margin-top: 50px;
   margin-left: 50px;
   margin-right: 50px;
   color: white;
@@ -72,6 +89,7 @@ img{
   font-family: 'Righteous', cursive;
   font-size: 40px;
 }
+
 
 #seed-data{
   height:300px;
@@ -99,6 +117,14 @@ img{
   border-radius: 30px;
   font-family: 'Righteous', cursive;
   font-size: 40px;
+
+.body #body .main_buttons:hover {background-color: aliceblue}
+
+.body #body .main_buttons:active {
+  background-color: beige;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+
 }
 
 button:hover {background-color: aliceblue}
@@ -118,20 +144,22 @@ li h2 {
 
 
 }
-li h4 {
+li h3 {
   display: block;
   text-align: center;
   position: relative;
-  top: 4px;
+  top: 20px;
 
 }
 li button {
   display: block;
   text-align: center;
   position: relative;
-  top: 9px;
 }
-ul {
+.intro{
+  text-align: center:
+}
+#top {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -142,22 +170,38 @@ ul {
   margin-top: 0;
   border-style: solid;
   border-radius: 10px;
-  padding: 5px;
+  /* padding: 5px; */
   background-color: lightblue;
 }
-
-.bottom_bar{
+#body{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
+  justify-content: space-between;
+  display: flex;
+  overflow: hidden;
+  margin-top: 0;
+}
+.footer{
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+#bottom_bar{
   border: 5px solid powderblue;
   border-style: solid;
-  position: absolute;
-  bottom: -400px;
-  width: 95.8%;
   border-radius: 10px;
   padding: 18px;
   background-color: lightblue;
-
 }
-
+.container {
+   min-height:100%;
+   position:relative;
+}
+.body {
+   padding:10px;
+}
 /* #email{
   position: absolute;
   top: 9px;
