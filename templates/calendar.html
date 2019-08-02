@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="/stylesheets/calendar.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="top_bar">Calendar</h1>
+      <button id="back" onclick="window.location.href='/dashboard'">Sign Out</button>
+      <div class="main_login">
+        <center>
+        <h2>In your Google Calendar,</h2>
+        <h2>You currently have:</h2>
+        {% set counter = 1 %}
+        {% for each_event in new_event %}
+          <div class="numberCircle">{{counter}}</div>
+          <h3 id="time">{{each_event.time}}</h3>
+          <h3 id="name">{{each_event.event_name}}</h3>
+          {% set counter= counter +1 %}
+        {% endfor %}
+        </center>
+      </div>
+    </div>
+
+  </body>
+</html>

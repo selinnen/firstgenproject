@@ -90,12 +90,41 @@ img{
   font-size: 40px;
 }
 
+
+#seed-data{
+  height:300px;
+  width:400px;
+  margin-top: 50px;
+  margin-left: 240px;
+  margin-right: 100px;
+  color: white;
+  background-color: lightblue;
+  text-shadow: 2px 1px #D3D3D3;
+  border-radius: 30px;
+  font-family: 'Righteous', cursive;
+  font-size: 40px;
+}
+
+#calendar{
+  height:300px;
+  width:400px;
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+  color: white;
+  background-color: lightblue;
+  text-shadow: 2px 1px #D3D3D3;
+  border-radius: 30px;
+  font-family: 'Righteous', cursive;
+  font-size: 40px;
+
 .body #body .main_buttons:hover {background-color: aliceblue}
 
 .body #body .main_buttons:active {
   background-color: beige;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+
 }
 
 button:hover {background-color: aliceblue}
