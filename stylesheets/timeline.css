@@ -36,7 +36,7 @@ h1{
   margin-top: 0;
   background-color: lightblue;
 }
-ul {
+.top_bar {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -48,6 +48,13 @@ ul {
   border-radius: 10px;
   padding: 5px;
   background-color: lightblue;
+}
+#control_bar{
+  list-style-type: none;
+  justify-content: space-between;
+  display: flex;
+  margin-top: 0;
+  padding: 5px;
 }
 
 
@@ -141,20 +148,23 @@ button:hover {background-color: aliceblue}
   text-align: left;
   left: 0;
 }
-input[type=text] {
-  width: 8%;
-  margin: 10px 0;
-  padding: 8px;
-  box-sizing: border-box;
-  border: 3px solid beige;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+.prezi_buttons #count_bar{
+  cursor: pointer;
+  font-size: 15px;
+  border: solid;
+  text-shadow: 2px 1px lightblue;
+  outline: none;
+  color: ivory;
+  border-radius: 15px;
+  box-shadow: 0 3px lightblue;
+  border-color: ivory;
+  padding: 8px 20px;
   background-color: lightblue;
+  font-family: inherit;
+  margin: 0;
 }
 
-input[type=text]:hover {
-  border: 3px solid beige;
-}
+
 .dropdown-content a:hover {
   background-color: #ddd;
 }
