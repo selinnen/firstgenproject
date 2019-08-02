@@ -288,7 +288,7 @@
 #   </body>
 # </html>
 
-
+#
 # main.css
 # body{
 #   background-color: ivory;
@@ -450,11 +450,11 @@
 #
 # }
 #
-
-
-
+#
+#
+#
 # app.yaml
-# 
+#
 # runtime: python27
 # api_version: 1
 # threadsafe: true
